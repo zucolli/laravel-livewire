@@ -17,4 +17,13 @@ class ShowTweets extends Component
             'tweets' => $tweets,
         ]);
     }
+
+    public function create() {
+        Tweet::create([
+            'user_id' => 1,
+            'content' => $this->message,
+        ]);
+
+        $this->message = '';
+    }
 }
