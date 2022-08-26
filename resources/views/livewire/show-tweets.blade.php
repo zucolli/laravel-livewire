@@ -1,10 +1,13 @@
 <div>
     <h1>Show Tweets</h1>
 
-    <p>{{ $message }}</p>
+    <p>{{ $content }}</p>
 
     <form method="POST" wire:submit.prevent="create">
-        <input type="text" name="message" id="message" wire:model="message">
+        <input type="text" name="content" id="content" wire:model="content">
+        @error('content')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
         <button>Criar Tweet</button>
     </form>
     <hr>
@@ -13,4 +16,9 @@
         {{ $tweet->user->name }} - {{ $tweet->content }}
         <hr>
     @endforeach
+
+    <hr>
+    <div>
+        {{ $tweets->links() }}
+    </div>
 </div>
