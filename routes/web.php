@@ -3,6 +3,7 @@
 use App\Http\Livewire\ShowTweets;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\User\UploadPhoto;
+use App\Models\Products;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use App\Http\Livewire\User\UploadPhoto;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('upload', UploadPhoto::class)->name('upload.photo.user')->middleware('auth');
 
 Route::get('tweets', ShowTweets::class)->name('tweets.index')->middleware('auth');
@@ -30,4 +32,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/product', function () {
+        return view('product');
+    })->name('product');
 });
